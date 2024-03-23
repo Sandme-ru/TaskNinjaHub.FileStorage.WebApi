@@ -1,10 +1,5 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
 using Minio;
 using Minio.AspNetCore;
-using Newtonsoft.Json;
-using TaskNinjaHub.FileStorage.WebApi.Subdomain;
 
 var builder = WebApplication.CreateBuilder(args);
 
