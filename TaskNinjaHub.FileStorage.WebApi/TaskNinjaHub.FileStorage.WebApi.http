@@ -1,0 +1,6 @@
+@TaskNinjaHub.FileStorage.WebApi_HostAddress = http://localhost:5276
+
+GET {{TaskNinjaHub.FileStorage.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

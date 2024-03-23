@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskNinjaHub.FileStorage.WebApi", "TaskNinjaHub.FileStorage.WebApi\TaskNinjaHub.FileStorage.WebApi.csproj", "{0A42DE3F-EC1B-4D31-8578-4A034D1D0CDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A42DE3F-EC1B-4D31-8578-4A034D1D0CDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A42DE3F-EC1B-4D31-8578-4A034D1D0CDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A42DE3F-EC1B-4D31-8578-4A034D1D0CDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A42DE3F-EC1B-4D31-8578-4A034D1D0CDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9CD2DE8C-AFD0-4C7C-AE11-8FA2D66C4101}
+	EndGlobalSection
+EndGlobal
