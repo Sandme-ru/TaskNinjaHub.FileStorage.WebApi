@@ -1,15 +1,39 @@
+using Minio;
+using Minio.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var endpoint = "https://minio-server.sandme.ru:9000";
+
+var accessKey = "minio";
+var secretKey = "miniostorage";
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AddSwaggerGen(options =>
+{
+#if RELEASE
+    options.DocumentFilter<SubdomainRouteAttribute>();
+#endif
+});
+
+builder.Services.AddMinio(options =>
+{
+    options.Endpoint = endpoint;
+    options.ConfigureClient(client =>
+    {
+        client.WithSSL();
+    });
+});
+
+// Url based configuration
+builder.Services.AddMinio(new Uri("s3://minio:miniostorage@minio-server.sandme.ru:9000/region"));
+
+// Create new from factory
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -17,8 +41,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 
