@@ -1,5 +1,6 @@
 using Minio;
 using Minio.AspNetCore;
+using TaskNinjaHub.FileStorage.WebApi.Subdomain;
 
 var builder = WebApplication.CreateBuilder(args);
 
