@@ -1,0 +1,14 @@
+version: '3'
+services:
+  storage:
+    container_name: tnh-storage-api
+    build:
+      context: ../
+      dockerfile: ./TaskNinjaHub.FileStorage.WebApi/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8086:8080"
+      - "8089:8081"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
