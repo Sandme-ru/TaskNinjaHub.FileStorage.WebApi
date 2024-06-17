@@ -4,11 +4,6 @@ using TaskNinjaHub.FileStorage.WebApi.Subdomain;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var endpoint = "https://minio-server.sandme.ru:9000";
-
-var accessKey = "minio";
-var secretKey = "miniostorage";
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
@@ -19,17 +14,11 @@ builder.Services.AddSwaggerGen(options =>
 #endif
 });
 
-builder.Services.AddMinio(options =>
-{
-    options.Endpoint = endpoint;
-    options.ConfigureClient(client =>
-    {
-        client.WithSSL();
-    });
-});
-
-// Url based configuration
-builder.Services.AddMinio(new Uri("s3://minio:miniostorage@minio-server.sandme.ru:9000/region"));
+builder.Services.AddMinio(configureClient => configureClient
+    .WithEndpoint(builder.Configuration["Minio:Client"])
+    .WithCredentials(builder.Configuration["Minio:AccessKey"],
+        builder.Configuration["Minio:SecretKey"])
+    .WithSSL(false));
 
 // Create new from factory
 
